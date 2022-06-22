@@ -4,6 +4,8 @@ const { PORT = 3030 } = process.env;
 import bodyParser from "body-parser";
 import cors from "cors";
 import data from "./data.js";
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from "../student-grading-system-swagger.json";
 
 app.use(bodyParser.json()).use(cors());
 
@@ -147,6 +149,13 @@ app.get("/healthcheck", (req, res) => {
 
     // console.log("Healthcheck rendered successfully!");
 });
+
+
+// ----------------------------- SWAGGER UI -----------------------------
+
+
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 // ----------------------------- LOCAL HOSTING -----------------------------
 
