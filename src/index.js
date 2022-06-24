@@ -79,6 +79,16 @@ app.get("/api/markings", (req, res) => {
     return res.json(markings);
 });
 
+// A GET request to find the markings of one student
+app.get("/api/markings/students/:id", (req, res) => {
+
+    const id = parseInt(req.params.id);
+    const markings = data.markings.find( (st) => st.studentid == id );
+    if(!markings){
+        res.status(404).json({error:"Student is not found, please try with another id!"});
+    }
+    return res.json(markings);
+});
 
 // ----------------------------- POST REQUESTS -----------------------------
 
