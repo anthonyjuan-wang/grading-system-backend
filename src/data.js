@@ -3,7 +3,7 @@ const data = {
         {
             id: 1,
             name: 'Jeff Anderson',
-            faculty: 'Engineering'
+            faculty: 'Engineering' 
         },
         {
             id: 2,
